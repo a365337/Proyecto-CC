@@ -38,7 +38,6 @@
         }
     }
 
-
     $conexion = mysqli_connect("localhost", "root", "root", "proyecto_cc");
     $consulta = 'select * from Usuarios where usuario = "'.$usuario.'" and pass = "'.$password.'";';
     $resultado = mysqli_query($conexion, $consulta);
@@ -57,6 +56,9 @@
         }
 
         $_SESSION["logueado"] = true;
+        $_SESSION["usuario"] = $usuario;
+        $_SESSION["pass"] = $password;
+        
         header("Location: bienvenida.php");
         exit();
 
